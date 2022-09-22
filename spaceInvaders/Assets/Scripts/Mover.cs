@@ -18,4 +18,6 @@ public class Mover : MonoBehaviour
         hInput = Input.GetAxisRaw("Horizontal");
         transform.Translate(Vector2.right * hInput * Speed * Time.deltaTime);
     }
+
+   
 }

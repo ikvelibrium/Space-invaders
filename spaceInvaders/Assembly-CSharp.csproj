@@ -53,10 +53,12 @@
     <UnityVersion>2020.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Mover.cs" />
+    <Compile Include="Assets\Scripts\Shoot.cs" />
     <Compile Include="Assets\Scripts\EnemyMover.cs" />
-    <Compile Include="Assets\Scripts\bullet.cs" />
-    <Compile Include="Assets\Scripts\shoot.cs" />
+    <Compile Include="Assets\Scripts\lvlChanger.cs" />
+    <Compile Include="Assets\Scripts\Mover.cs" />
+    <Compile Include="Assets\Scripts\playerHealth.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
     
+    
+
     void Start()
     {
         
@@ -16,14 +18,19 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(Vector2.up * bulletSpeed * Time.deltaTime);
         Destroy(gameObject, 5);
-
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "invader")
+        if (collision.gameObject.layer == 8)
         {
-            Destroy(collision.gameObject);
+           
+          
+           
             Destroy(gameObject);
-        }
+           
+        } 
+        
     }
+    
 }
