@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemyMover : MonoBehaviour
 {
     public float Speed;
@@ -12,19 +13,17 @@ public class EnemyMover : MonoBehaviour
     private int amountOfShips = 0;
     public GameObject invader;
     public Transform parent;
-    
-    [SerializeField] private GameObject looseScreen;
-    [SerializeField] private GameObject winScreen;
-    public int deaths = 0;
-    
-    void Start()
-    {
-        
-    }
 
+    [SerializeField] private GameObject looseScreen;
+    [SerializeField] private GameObject winScreen;    
+    public static int deaths = 0;
     
+
+
+
     void Update()
     {
+        
         if (amountOfShips < 14)
         {
             Instantiate(invader, transform.position, Quaternion.identity, parent);
@@ -34,37 +33,39 @@ public class EnemyMover : MonoBehaviour
         {
             Speed = rightSpeed;
         }
-        if(goingRight == false)
+        if (goingRight == false)
         {
             Speed = leftSpeed;
         }
+        if (deaths >= 14)
+        {
+            winScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
         transform.Translate(Vector2.right * Speed * Time.deltaTime);
-        
+
         
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 7) 
+        if (collision.gameObject.layer == 7)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - goingDownScale, transform.position.z);
             goingRight = false;
         }
-        if(collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - goingDownScale, transform.position.z);
             goingRight = true;
-        } 
-        if(collision.gameObject.layer == 11)
+        }
+        if (collision.gameObject.layer == 11)
         {
-            
+
             looseScreen.SetActive(true);
             Time.timeScale = 0f;
         }
-        if (deaths ==  13)
-        {
-            winScreen.SetActive(true);
-            Time.timeScale = 0f;
-        }
+
     }
+   
 }

@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 5
+  score: 0
+  pointText: {fileID: 4199092763155624405, guid: b0bb063d6f85ce940bcdaaf30fc44fba, type: 3}
+  pointsToPlus: 10
 --- !u!61 &-5538837438098287859
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,12 +5,12 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
-    
-    
+    private Score score;
+    [SerializeField] int pointsToPlus;
 
     void Start()
     {
-        
+        score = GameObject.Find("Points").GetComponent<Score>();
     }
 
     
@@ -24,9 +24,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-           
-          
-           
+
+            EnemyMover.deaths++;
+            
+            Destroy(collision.gameObject);
+            score.updateScore(pointsToPlus);
             Destroy(gameObject);
            
         } 
